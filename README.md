@@ -1,1 +1,1 @@
-# tribakzero.github.io
+# dende.me

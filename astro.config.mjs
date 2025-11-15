@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config'
 import sanity from '@sanity/astro'
 import react from '@astrojs/react'
 
-import node from '@astrojs/node';
+import netlify from '@astrojs/netlify';
 
 export default defineConfig({
   integrations: [
@@ -15,10 +15,5 @@ export default defineConfig({
     }),
     react(),
   ],
-  site: 'https://tribakzero.github.io',
-  base: '/dende/',
-  output: 'static',
-  adapter: node({
-    mode: 'standalone',
-  }),
+  adapter: netlify(),
 })

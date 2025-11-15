@@ -1,7 +1,15 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from 'astro/config'
 
-// https://astro.build/config
+import sanity from '@sanity/astro'
+import react from '@astrojs/react'
+
 export default defineConfig({
-    site: 'https://dende.me',
-});
+  integrations: [
+    sanity({
+      projectId: 'fvoh5via',
+      dataset: 'production',
+      useCdn: false,
+    }),
+    react(),
+  ],
+})

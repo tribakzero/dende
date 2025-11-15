@@ -1,0 +1,29 @@
+---
+// ./src/pages/post/[slug].astro
+import { loadQuery } from "../sanity/lib/load-query";
+
+export async function getStaticPaths() {
+  const { data: links } = await loadQuery({
+    query: `*[_type == "link"]`,
+  });
+  return links.map(({ slug }) => {
+    return {
+      params: {
+        slug: slug.current,
+      },
+    };
+  });
+}
+
+const { params } = Astro;
+const { data: link } = await loadQuery<{ title: string; body: any[] }>({
+  query: `*[_type == "link" && slug.current == $slug][0]`,
+  params,
+});
+---
+
+<html lang="en">
+	<head>
+		<meta http-equiv="refresh" content={`0; url=${link.url}`} />
+	</head>
+</html>

@@ -15,6 +15,8 @@ export default defineConfig({
     }),
     react(),
   ],
+  site: 'https://tribakzero.github.io',
+  base: '/dende/',
   output: 'static',
   adapter: node({
     mode: 'standalone',

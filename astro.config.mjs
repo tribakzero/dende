@@ -9,6 +9,7 @@ export default defineConfig({
       projectId: 'fvoh5via',
       dataset: 'production',
       useCdn: false,
+      studioBasePath: '/admin',
     }),
     react(),
   ],

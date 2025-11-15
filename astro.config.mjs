@@ -3,6 +3,8 @@ import { defineConfig } from 'astro/config'
 import sanity from '@sanity/astro'
 import react from '@astrojs/react'
 
+import node from '@astrojs/node';
+
 export default defineConfig({
   integrations: [
     sanity({
@@ -13,4 +15,8 @@ export default defineConfig({
     }),
     react(),
   ],
+
+  adapter: node({
+    mode: 'standalone',
+  }),
 })
